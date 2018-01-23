@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>发货数据汇总</title>
+</head>
+
+<body>
+<h1>发货数据汇总</h1>
+当前时间：{$data.time|default=time()|date='Y-m-d h:i:s',###}
+
+<table width="400px" border="2" cellpadding="0" cellspacing="0" style="font-size:11px;text-align:center;">
+  <tr>
+    <th width="" scope="col">料号</th>
+    <th width="" scope="col">型号</th>
+    <th width="" scope="col">昨天</th>
+    <th width="" scope="col">今天</th>
+    <th width="" scope="col">本周</th>
+    <th width="" scope="col">上周</th>
+    <th width="" scope="col">本月</th>
+    <th width="" scope="col">上月</th>
+    <th width="" scope="col">今年</th>
+  </tr>
+  {foreach ($fh as $a => $b)}
+  <tr>
+    <td>{$b.liaohao}</td>
+    <td>{$b.name}</td>
+    <td bgcolor=#2894FF>{eq name='$b.zuotian' value='0'}{else/}{$b.zuotian}{/eq}</td>
+    <td bgcolor=#28FF28>{eq name='$b.jintian' value='0'}{else/}{$b.jintian}{/eq}</td>
+    <td bgcolor=#FF0000>{eq name='$b.benzhou' value='0'}{else/}{$b.benzhou}{/eq}</td>
+    <td bgcolor=#00FFFF>{eq name='$b.shangzhou' value='0'}{else/}{$b.shangzhou}{/eq}</td>
+    <td bgcolor=#8A2BE2>{eq name='$b.benyue' value='0'}{else/}{$b.benyue}{/eq}</td>
+    <td bgcolor=#FF4500>{eq name='$b.shangyue' value='0'}{else/}{$b.shangyue}{/eq}</td>
+    <td bgcolor=#FF00FF>{eq name='$b.jinnian' value='0'}{else/}{$b.jinnian}{/eq}</td>
+  </tr>
+  {/foreach}
+  <tr>
+    <td>&nbsp;</td>
+    <td><b>总数：</b></td>
+    <td>{$num_zuotian}台</td>
+    <td>{$num_jintian}台</td>
+    <td>{$num_benzhou}台</td>
+    <td>{$num_shangzhou}台</td>
+    <td>{$num_benyue}台</td>
+    <td>{$num_shangyue}台</td>
+    <td>{$num_jinnian}台</td>
+  </tr>
+
+</table>
+<div style="font-size: 9px">
+昨天：昨天00:01-23:59  </br>
+今天：今天00:01-23.59 </br>
+本周：本周一00:01-当前时间 </br>
+上周：上周一至上周日 </br>
+本月：本月1号-当前时间 </br>
+上月：上月1号-上月末 </br>
+今年：今年1月1号-当前时间 </br>
+<p>空白为无发货数据</p>
+<p>此数据含返修机发货数据，不含借样机发货数据</p>
+</div>
+
+
+
+</body>
+</html>

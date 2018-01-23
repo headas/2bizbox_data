@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="{:Url('/')}static/js/jquery-3.1.1.js" ></script>
+</head>
+<title></title>
+<body>
+<h1 style="font-size:24px;">列表合集</h1></div>
+<table id="c32" width="1080" border="1" cellpadding="1" cellspacing="0" style="font-size:16px;text-align:center;">
+	<tr>
+		<td width="12">id</td>
+		<td width="40">收货地址</td>
+		<td width="40">订货单位</td>
+		<td width="40">联系人</td>
+		<td width="30">电话</td>
+		<td width="30">邮政编码</td>
+		<td width="210">copy</td>
+	</tr>
+{volist name="result" id="v" }
+	<tr id={$v.id}>
+		<td>{$v.id}</td>
+		<td>{$v.addr1}</td>
+		<td>-{$v.name}</td>
+		<td>,{$v.comments}</td>
+		<td>,{$v.phone}</td>
+		<td>,{$v.zip}</td>
+		<td><input type="button" value="copy"></td>
+	</tr>
+{/volist}
+</table>>
+<input tyep="hidden" valie="" id="text">
+<script>
+$('#c32 tbody tr td input').click(function (){
+    var num = $(this).parent('td').parent('tr').find('td');
+    var b = '';
+    for(var i=1;i<num.length-1;i++){
+
+      b += num.eq(i).html();
+    }
+    $("#text").val(b);
+    document.getElementById("text").select();
+    document.execCommand("copy",false,null);
+    alert('复制成功！');
+
+});
+</script>
+</body>
+</html>
