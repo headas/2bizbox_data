@@ -13,15 +13,15 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => '113.87.52.169',
+    'hostname'        => 'localhost',
     // 数据库名
     'database'        => 'bb2_headas',
     // 用户名
     'username'        => 'root',
     // 密码
-    'password'        => 'c3253220.',
+    'password'        => 'root',
     // 端口
-    'hostport'        => '3333',
+    'hostport'        => '3306',
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
